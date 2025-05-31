@@ -52,10 +52,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.grbPriKey = new System.Windows.Forms.GroupBox();
             this.grbGenerate = new System.Windows.Forms.GroupBox();
-            this.grbDecrypt = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.grbDecrypt = new System.Windows.Forms.GroupBox();
+            this.btnCalculate = new System.Windows.Forms.Button();
             this.grbEncrypt.SuspendLayout();
             this.grbPQpiN.SuspendLayout();
             this.grbPubKey.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             // btnDecrypt
             // 
+            this.btnDecrypt.Enabled = false;
             this.btnDecrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDecrypt.Location = new System.Drawing.Point(471, 18);
             this.btnDecrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -128,6 +130,7 @@
             // 
             // btnEncrypt
             // 
+            this.btnEncrypt.Enabled = false;
             this.btnEncrypt.Location = new System.Drawing.Point(472, 17);
             this.btnEncrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEncrypt.Name = "btnEncrypt";
@@ -138,6 +141,7 @@
             // 
             // grbPQpiN
             // 
+            this.grbPQpiN.Controls.Add(this.btnCalculate);
             this.grbPQpiN.Controls.Add(this.label1);
             this.grbPQpiN.Controls.Add(this.label7);
             this.grbPQpiN.Controls.Add(this.btnGen);
@@ -149,7 +153,7 @@
             this.grbPQpiN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grbPQpiN.Name = "grbPQpiN";
             this.grbPQpiN.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbPQpiN.Size = new System.Drawing.Size(377, 245);
+            this.grbPQpiN.Size = new System.Drawing.Size(408, 245);
             this.grbPQpiN.TabIndex = 0;
             this.grbPQpiN.TabStop = false;
             // 
@@ -176,36 +180,37 @@
             // btnGen
             // 
             this.btnGen.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGen.Location = new System.Drawing.Point(26, 48);
+            this.btnGen.Location = new System.Drawing.Point(26, 19);
             this.btnGen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGen.Name = "btnGen";
-            this.btnGen.Size = new System.Drawing.Size(340, 23);
+            this.btnGen.Size = new System.Drawing.Size(145, 52);
             this.btnGen.TabIndex = 2;
-            this.btnGen.Text = "GENERATE KEY:";
+            this.btnGen.Text = "GENERATE KEY";
             this.btnGen.UseVisualStyleBackColor = true;
+            this.btnGen.Click += new System.EventHandler(this.btnGen_Click);
             // 
             // tbPhiN
             // 
-            this.tbPhiN.Location = new System.Drawing.Point(93, 157);
+            this.tbPhiN.Location = new System.Drawing.Point(61, 159);
             this.tbPhiN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPhiN.Name = "tbPhiN";
-            this.tbPhiN.Size = new System.Drawing.Size(269, 22);
+            this.tbPhiN.Size = new System.Drawing.Size(287, 22);
             this.tbPhiN.TabIndex = 1;
             // 
             // tbNumQ
             // 
-            this.tbNumQ.Location = new System.Drawing.Point(93, 123);
+            this.tbNumQ.Location = new System.Drawing.Point(61, 125);
             this.tbNumQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNumQ.Name = "tbNumQ";
-            this.tbNumQ.Size = new System.Drawing.Size(269, 22);
+            this.tbNumQ.Size = new System.Drawing.Size(287, 22);
             this.tbNumQ.TabIndex = 1;
             // 
             // tbNumP
             // 
-            this.tbNumP.Location = new System.Drawing.Point(93, 86);
+            this.tbNumP.Location = new System.Drawing.Point(61, 88);
             this.tbNumP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNumP.Name = "tbNumP";
-            this.tbNumP.Size = new System.Drawing.Size(272, 22);
+            this.tbNumP.Size = new System.Drawing.Size(287, 22);
             this.tbNumP.TabIndex = 1;
             // 
             // label3
@@ -222,7 +227,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 43);
+            this.label4.Location = new System.Drawing.Point(20, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 22);
             this.label4.TabIndex = 0;
@@ -264,7 +269,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 93);
+            this.label5.Location = new System.Drawing.Point(21, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 22);
             this.label5.TabIndex = 0;
@@ -320,6 +325,36 @@
             this.grbGenerate.TabStop = false;
             this.grbGenerate.Text = "CREATE KEY";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(827, 197);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(379, 27);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "23521040 - Le Nhat Trinh Nguyen";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(827, 133);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(387, 27);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "23520168 - Doan Ngoc Minh Chau";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(827, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(390, 27);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "23521037 - Bui Dang Nhat Nguyen";
+            // 
             // grbDecrypt
             // 
             this.grbDecrypt.Controls.Add(this.rsa_BanMaHoa);
@@ -330,40 +365,21 @@
             this.grbDecrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grbDecrypt.Name = "grbDecrypt";
             this.grbDecrypt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbDecrypt.Size = new System.Drawing.Size(611, 300);
+            this.grbDecrypt.Size = new System.Drawing.Size(620, 300);
             this.grbDecrypt.TabIndex = 4;
             this.grbDecrypt.TabStop = false;
             this.grbDecrypt.Text = "DECRYPT";
             // 
-            // label2
+            // btnCalculate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(852, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(390, 27);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "23521037 - Bui Dang Nhat Nguyen";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(852, 123);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(387, 27);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "23520168 - Doan Ngoc Minh Chau";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(852, 187);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(379, 27);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "23521040 - Le Nhat Trinh Nguyen";
+            this.btnCalculate.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalculate.Location = new System.Drawing.Point(204, 19);
+            this.btnCalculate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(144, 52);
+            this.btnCalculate.TabIndex = 5;
+            this.btnCalculate.Text = "CALCULATE";
+            this.btnCalculate.UseVisualStyleBackColor = true;
             // 
             // RSA_form
             // 
@@ -420,5 +436,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnCalculate;
     }
 }
