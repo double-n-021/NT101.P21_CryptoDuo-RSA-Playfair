@@ -41,4 +41,4 @@ Develop an application that supports encryption and decryption using:
 
 ---
 
-## Made by Group9_NT106.P12 | NT106 Project
+## Made by a group of NT101.P21 | NT101 Project
