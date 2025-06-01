@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rsa_banGiaiMa = new System.Windows.Forms.RichTextBox();
+            this.tbCipherText = new System.Windows.Forms.RichTextBox();
             this.btnEncrypt = new System.Windows.Forms.Button();
-            this.rsa_banMaHoaGuiDen = new System.Windows.Forms.RichTextBox();
-            this.rsa_BanMaHoa = new System.Windows.Forms.RichTextBox();
-            this.rsa_BanRo = new System.Windows.Forms.RichTextBox();
+            this.tbDecryptedText = new System.Windows.Forms.RichTextBox();
+            this.tbPlainText = new System.Windows.Forms.RichTextBox();
+            this.tbCipherInput = new System.Windows.Forms.RichTextBox();
             this.grbDecrypt = new System.Windows.Forms.GroupBox();
             this.btnDecrypt = new System.Windows.Forms.Button();
             this.grbPQpiN = new System.Windows.Forms.GroupBox();
@@ -65,14 +65,14 @@
             this.grbEncrypt.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rsa_banGiaiMa
+            // tbCipherText
             // 
-            this.rsa_banGiaiMa.Location = new System.Drawing.Point(24, 175);
-            this.rsa_banGiaiMa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rsa_banGiaiMa.Name = "rsa_banGiaiMa";
-            this.rsa_banGiaiMa.Size = new System.Drawing.Size(559, 102);
-            this.rsa_banGiaiMa.TabIndex = 5;
-            this.rsa_banGiaiMa.Text = "";
+            this.tbCipherText.Location = new System.Drawing.Point(24, 175);
+            this.tbCipherText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCipherText.Name = "tbCipherText";
+            this.tbCipherText.Size = new System.Drawing.Size(559, 102);
+            this.tbCipherText.TabIndex = 5;
+            this.tbCipherText.Text = "";
             // 
             // btnEncrypt
             // 
@@ -87,38 +87,38 @@
             this.btnEncrypt.UseVisualStyleBackColor = true;
             this.btnEncrypt.Click += new System.EventHandler(this.btnEncrypt_Click);
             // 
-            // rsa_banMaHoaGuiDen
+            // tbDecryptedText
             // 
-            this.rsa_banMaHoaGuiDen.Location = new System.Drawing.Point(27, 175);
-            this.rsa_banMaHoaGuiDen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rsa_banMaHoaGuiDen.Name = "rsa_banMaHoaGuiDen";
-            this.rsa_banMaHoaGuiDen.Size = new System.Drawing.Size(552, 102);
-            this.rsa_banMaHoaGuiDen.TabIndex = 3;
-            this.rsa_banMaHoaGuiDen.Text = "";
+            this.tbDecryptedText.Location = new System.Drawing.Point(27, 175);
+            this.tbDecryptedText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbDecryptedText.Name = "tbDecryptedText";
+            this.tbDecryptedText.Size = new System.Drawing.Size(552, 102);
+            this.tbDecryptedText.TabIndex = 3;
+            this.tbDecryptedText.Text = "";
             // 
-            // rsa_BanMaHoa
+            // tbPlainText
             // 
-            this.rsa_BanMaHoa.Location = new System.Drawing.Point(24, 49);
-            this.rsa_BanMaHoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rsa_BanMaHoa.Name = "rsa_BanMaHoa";
-            this.rsa_BanMaHoa.Size = new System.Drawing.Size(559, 102);
-            this.rsa_BanMaHoa.TabIndex = 2;
-            this.rsa_BanMaHoa.Text = "";
+            this.tbPlainText.Location = new System.Drawing.Point(24, 49);
+            this.tbPlainText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPlainText.Name = "tbPlainText";
+            this.tbPlainText.Size = new System.Drawing.Size(559, 102);
+            this.tbPlainText.TabIndex = 2;
+            this.tbPlainText.Text = "";
             // 
-            // rsa_BanRo
+            // tbCipherInput
             // 
-            this.rsa_BanRo.Location = new System.Drawing.Point(27, 49);
-            this.rsa_BanRo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rsa_BanRo.Name = "rsa_BanRo";
-            this.rsa_BanRo.Size = new System.Drawing.Size(552, 102);
-            this.rsa_BanRo.TabIndex = 0;
-            this.rsa_BanRo.Text = "";
+            this.tbCipherInput.Location = new System.Drawing.Point(27, 49);
+            this.tbCipherInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCipherInput.Name = "tbCipherInput";
+            this.tbCipherInput.Size = new System.Drawing.Size(552, 102);
+            this.tbCipherInput.TabIndex = 0;
+            this.tbCipherInput.Text = "";
             // 
             // grbDecrypt
             // 
-            this.grbDecrypt.Controls.Add(this.rsa_banMaHoaGuiDen);
+            this.grbDecrypt.Controls.Add(this.tbDecryptedText);
             this.grbDecrypt.Controls.Add(this.btnDecrypt);
-            this.grbDecrypt.Controls.Add(this.rsa_BanRo);
+            this.grbDecrypt.Controls.Add(this.tbCipherInput);
             this.grbDecrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDecrypt.Location = new System.Drawing.Point(672, 330);
             this.grbDecrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -370,8 +370,8 @@
             // 
             // grbEncrypt
             // 
-            this.grbEncrypt.Controls.Add(this.rsa_BanMaHoa);
-            this.grbEncrypt.Controls.Add(this.rsa_banGiaiMa);
+            this.grbEncrypt.Controls.Add(this.tbPlainText);
+            this.grbEncrypt.Controls.Add(this.tbCipherText);
             this.grbEncrypt.Controls.Add(this.btnEncrypt);
             this.grbEncrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbEncrypt.Location = new System.Drawing.Point(12, 330);
@@ -410,11 +410,11 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox rsa_banGiaiMa;
+        private System.Windows.Forms.RichTextBox tbCipherText;
         private System.Windows.Forms.Button btnEncrypt;
-        private System.Windows.Forms.RichTextBox rsa_banMaHoaGuiDen;
-        private System.Windows.Forms.RichTextBox rsa_BanMaHoa;
-        private System.Windows.Forms.RichTextBox rsa_BanRo;
+        private System.Windows.Forms.RichTextBox tbDecryptedText;
+        private System.Windows.Forms.RichTextBox tbPlainText;
+        private System.Windows.Forms.RichTextBox tbCipherInput;
         private System.Windows.Forms.GroupBox grbDecrypt;
         private System.Windows.Forms.Button btnDecrypt;
         private System.Windows.Forms.GroupBox grbPQpiN;
