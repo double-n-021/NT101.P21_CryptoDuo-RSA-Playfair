@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.rsa_banGiaiMa = new System.Windows.Forms.RichTextBox();
-            this.btnDecrypt = new System.Windows.Forms.Button();
+            this.btnEncrypt = new System.Windows.Forms.Button();
             this.rsa_banMaHoaGuiDen = new System.Windows.Forms.RichTextBox();
             this.rsa_BanMaHoa = new System.Windows.Forms.RichTextBox();
             this.rsa_BanRo = new System.Windows.Forms.RichTextBox();
-            this.grbEncrypt = new System.Windows.Forms.GroupBox();
-            this.btnEncrypt = new System.Windows.Forms.Button();
+            this.grbDecrypt = new System.Windows.Forms.GroupBox();
+            this.btnDecrypt = new System.Windows.Forms.Button();
             this.grbPQpiN = new System.Windows.Forms.GroupBox();
+            this.btnCalculate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnGen = new System.Windows.Forms.Button();
@@ -55,14 +56,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.grbDecrypt = new System.Windows.Forms.GroupBox();
-            this.btnCalculate = new System.Windows.Forms.Button();
-            this.grbEncrypt.SuspendLayout();
+            this.grbEncrypt = new System.Windows.Forms.GroupBox();
+            this.grbDecrypt.SuspendLayout();
             this.grbPQpiN.SuspendLayout();
             this.grbPubKey.SuspendLayout();
             this.grbPriKey.SuspendLayout();
             this.grbGenerate.SuspendLayout();
-            this.grbDecrypt.SuspendLayout();
+            this.grbEncrypt.SuspendLayout();
             this.SuspendLayout();
             // 
             // rsa_banGiaiMa
@@ -74,17 +74,18 @@
             this.rsa_banGiaiMa.TabIndex = 5;
             this.rsa_banGiaiMa.Text = "";
             // 
-            // btnDecrypt
+            // btnEncrypt
             // 
-            this.btnDecrypt.Enabled = false;
-            this.btnDecrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDecrypt.Location = new System.Drawing.Point(471, 18);
-            this.btnDecrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDecrypt.Name = "btnDecrypt";
-            this.btnDecrypt.Size = new System.Drawing.Size(113, 26);
-            this.btnDecrypt.TabIndex = 4;
-            this.btnDecrypt.Text = "DECRYPT";
-            this.btnDecrypt.UseVisualStyleBackColor = true;
+            this.btnEncrypt.Enabled = false;
+            this.btnEncrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEncrypt.Location = new System.Drawing.Point(471, 18);
+            this.btnEncrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEncrypt.Name = "btnEncrypt";
+            this.btnEncrypt.Size = new System.Drawing.Size(113, 26);
+            this.btnEncrypt.TabIndex = 4;
+            this.btnEncrypt.Text = "ENCRYPT";
+            this.btnEncrypt.UseVisualStyleBackColor = true;
+            this.btnEncrypt.Click += new System.EventHandler(this.btnEncrypt_Click);
             // 
             // rsa_banMaHoaGuiDen
             // 
@@ -113,31 +114,32 @@
             this.rsa_BanRo.TabIndex = 0;
             this.rsa_BanRo.Text = "";
             // 
-            // grbEncrypt
+            // grbDecrypt
             // 
-            this.grbEncrypt.Controls.Add(this.rsa_banMaHoaGuiDen);
-            this.grbEncrypt.Controls.Add(this.btnEncrypt);
-            this.grbEncrypt.Controls.Add(this.rsa_BanRo);
-            this.grbEncrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbEncrypt.Location = new System.Drawing.Point(672, 330);
-            this.grbEncrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbEncrypt.Name = "grbEncrypt";
-            this.grbEncrypt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbEncrypt.Size = new System.Drawing.Size(609, 300);
-            this.grbEncrypt.TabIndex = 3;
-            this.grbEncrypt.TabStop = false;
-            this.grbEncrypt.Text = "ENCRYPT";
+            this.grbDecrypt.Controls.Add(this.rsa_banMaHoaGuiDen);
+            this.grbDecrypt.Controls.Add(this.btnDecrypt);
+            this.grbDecrypt.Controls.Add(this.rsa_BanRo);
+            this.grbDecrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbDecrypt.Location = new System.Drawing.Point(672, 330);
+            this.grbDecrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grbDecrypt.Name = "grbDecrypt";
+            this.grbDecrypt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grbDecrypt.Size = new System.Drawing.Size(609, 300);
+            this.grbDecrypt.TabIndex = 3;
+            this.grbDecrypt.TabStop = false;
+            this.grbDecrypt.Text = "DECRYPT";
             // 
-            // btnEncrypt
+            // btnDecrypt
             // 
-            this.btnEncrypt.Enabled = false;
-            this.btnEncrypt.Location = new System.Drawing.Point(472, 17);
-            this.btnEncrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEncrypt.Name = "btnEncrypt";
-            this.btnEncrypt.Size = new System.Drawing.Size(107, 27);
-            this.btnEncrypt.TabIndex = 1;
-            this.btnEncrypt.Text = "ENCRYPT";
-            this.btnEncrypt.UseVisualStyleBackColor = true;
+            this.btnDecrypt.Enabled = false;
+            this.btnDecrypt.Location = new System.Drawing.Point(472, 17);
+            this.btnDecrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDecrypt.Name = "btnDecrypt";
+            this.btnDecrypt.Size = new System.Drawing.Size(107, 27);
+            this.btnDecrypt.TabIndex = 1;
+            this.btnDecrypt.Text = "DECRYPT";
+            this.btnDecrypt.UseVisualStyleBackColor = true;
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // grbPQpiN
             // 
@@ -156,6 +158,17 @@
             this.grbPQpiN.Size = new System.Drawing.Size(408, 245);
             this.grbPQpiN.TabIndex = 0;
             this.grbPQpiN.TabStop = false;
+            // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalculate.Location = new System.Drawing.Point(204, 19);
+            this.btnCalculate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(144, 52);
+            this.btnCalculate.TabIndex = 5;
+            this.btnCalculate.Text = "CALCULATE";
+            this.btnCalculate.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -355,44 +368,33 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "23521037 - Bui Dang Nhat Nguyen";
             // 
-            // grbDecrypt
+            // grbEncrypt
             // 
-            this.grbDecrypt.Controls.Add(this.rsa_BanMaHoa);
-            this.grbDecrypt.Controls.Add(this.rsa_banGiaiMa);
-            this.grbDecrypt.Controls.Add(this.btnDecrypt);
-            this.grbDecrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbDecrypt.Location = new System.Drawing.Point(12, 330);
-            this.grbDecrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbDecrypt.Name = "grbDecrypt";
-            this.grbDecrypt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbDecrypt.Size = new System.Drawing.Size(620, 300);
-            this.grbDecrypt.TabIndex = 4;
-            this.grbDecrypt.TabStop = false;
-            this.grbDecrypt.Text = "DECRYPT";
-            // 
-            // btnCalculate
-            // 
-            this.btnCalculate.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalculate.Location = new System.Drawing.Point(204, 19);
-            this.btnCalculate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(144, 52);
-            this.btnCalculate.TabIndex = 5;
-            this.btnCalculate.Text = "CALCULATE";
-            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.grbEncrypt.Controls.Add(this.rsa_BanMaHoa);
+            this.grbEncrypt.Controls.Add(this.rsa_banGiaiMa);
+            this.grbEncrypt.Controls.Add(this.btnEncrypt);
+            this.grbEncrypt.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbEncrypt.Location = new System.Drawing.Point(12, 330);
+            this.grbEncrypt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grbEncrypt.Name = "grbEncrypt";
+            this.grbEncrypt.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grbEncrypt.Size = new System.Drawing.Size(620, 300);
+            this.grbEncrypt.TabIndex = 4;
+            this.grbEncrypt.TabStop = false;
+            this.grbEncrypt.Text = "ENCRYPT";
             // 
             // RSA_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 660);
-            this.Controls.Add(this.grbEncrypt);
             this.Controls.Add(this.grbDecrypt);
+            this.Controls.Add(this.grbEncrypt);
             this.Controls.Add(this.grbGenerate);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RSA_form";
             this.Text = "RSA CRYPTOOL";
-            this.grbEncrypt.ResumeLayout(false);
+            this.grbDecrypt.ResumeLayout(false);
             this.grbPQpiN.ResumeLayout(false);
             this.grbPQpiN.PerformLayout();
             this.grbPubKey.ResumeLayout(false);
@@ -401,7 +403,7 @@
             this.grbPriKey.PerformLayout();
             this.grbGenerate.ResumeLayout(false);
             this.grbGenerate.PerformLayout();
-            this.grbDecrypt.ResumeLayout(false);
+            this.grbEncrypt.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -409,12 +411,12 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox rsa_banGiaiMa;
-        private System.Windows.Forms.Button btnDecrypt;
+        private System.Windows.Forms.Button btnEncrypt;
         private System.Windows.Forms.RichTextBox rsa_banMaHoaGuiDen;
         private System.Windows.Forms.RichTextBox rsa_BanMaHoa;
         private System.Windows.Forms.RichTextBox rsa_BanRo;
-        private System.Windows.Forms.GroupBox grbEncrypt;
-        private System.Windows.Forms.Button btnEncrypt;
+        private System.Windows.Forms.GroupBox grbDecrypt;
+        private System.Windows.Forms.Button btnDecrypt;
         private System.Windows.Forms.GroupBox grbPQpiN;
         private System.Windows.Forms.TextBox tbPhiN;
         private System.Windows.Forms.TextBox tbNumQ;
@@ -430,7 +432,7 @@
         private System.Windows.Forms.Button btnGen;
         private System.Windows.Forms.GroupBox grbPriKey;
         private System.Windows.Forms.GroupBox grbGenerate;
-        private System.Windows.Forms.GroupBox grbDecrypt;
+        private System.Windows.Forms.GroupBox grbEncrypt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;

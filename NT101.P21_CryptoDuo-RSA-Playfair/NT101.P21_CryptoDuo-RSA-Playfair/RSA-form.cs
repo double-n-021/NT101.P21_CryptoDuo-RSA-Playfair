@@ -47,6 +47,15 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
             return true;
         }
 
+        private void btnEncrypt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void btnGen_Click(object sender, EventArgs e)
         {
@@ -64,8 +73,8 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
 
             generateKey();  // --> gọi hàm tạo khóa chính
 
-            btnEncrypt.Enabled = true;
             btnDecrypt.Enabled = true;
+            btnEncrypt.Enabled = true;
         }
 
         private void reset()
