@@ -78,34 +78,46 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
         {
             try
             {
-                if (!IsPrime(P) || !IsPrime(Q))
-                {
-                    MessageBox.Show("P và Q phải là số nguyên tố.", "Lỗi");
-                    return;
-                }
-
                 N = P * Q;
                 PhiN = (P - 1) * (Q - 1);
 
                 tbN.Text = N.ToString();
                 tbPhiN.Text = PhiN.ToString();
 
-                //do
-                //{
-                //    if (tbE.Text == "")
-                //    {
-                //        E = new Random().Next(2, (int)PhiN);
-                //    }
-                //    else
-                //    {
-                //        E = int.Parse(tbE.Text);
-                //    }
+                //Chọn E thõa mãn điều kiện
+                do
+                {
+                    if (tbE.Text == "")
+                    {
+                        E = new Random().Next(2, (int)PhiN); //Chọn ngẫu nhiên E từ 2 đến phiN
+                    }
+                    else
+                    {
+                        E = int.Parse(tbE.Text); //Nhập thủ công E
+                    }
 
-                //}
-                //while (!AreCoprime(E, PhiN));
+                }
 
+                while (!AreCoprime(E, PhiN));
+                tbE.Text = E.ToString();
 
-                //tbE.Text = E.ToString();
+                //Tìm số D (nghịch đảo modular của E theo modulo PhiN
+                var result = ExtendedEuclid((int)E, (int)PhiN);
+                BigInteger gcd = result.gcd;
+                BigInteger x = result.x;
+                //BigInteger y = result.y; // không dùng
+
+                if (gcd != 1)
+                {
+                    MessageBox.Show("Không tìm được khóa d vì gcd(E, PhiN) != 1", "Lỗi");
+                    return;
+                }
+
+                D = x % PhiN;
+                if (D < 0) D += PhiN; //Đảm bảo d > 0
+
+                tbD.Text = D.ToString();
+
 
             }
             catch (Exception ex)
@@ -114,14 +126,58 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
             }
         }
 
+        //Thuật toán Euclid để kiểm tra gcd(a, b) == 1. Tức là kiểm tra 2 số nguyên tố cùng nhau
         private bool AreCoprime(BigInteger a, BigInteger b)
         {
             while (b != 0)
             {
                 (a, b) = (b, a % b);
             }
+
             return a == 1;
         }
+
+        //Hàm Euclid mở rộng để tìm D
+        private (BigInteger gcd, BigInteger x, BigInteger y) ExtendedEuclid(BigInteger a, BigInteger b)
+        {
+            if (b == 0)
+                return (a, 1, 0);
+
+            var (gcd, x1, y1) = ExtendedEuclid(b, a % b); //Đệ quy đổi vai trò a và b, tìm nghiệm b.x1 + (a mod b).y1 = gcd(b, a mod b)
+
+            //Quy đổi nghiệm ngược lại từ thuật toán Euclid mở rộng
+            BigInteger x = y1;
+            BigInteger y = x1 - (a / b) * y1;
+
+            return (gcd, x, y);
+        }
+
+        //private (BigInteger gcd, BigInteger x, BigInteger y) ExtendedEuclid2(BigInteger a, BigInteger b)
+        //{
+        //    BigInteger x0 = 1, y0 = 0;
+        //    BigInteger x1 = 0, y1 = 1;
+
+        //    while (b != 0)
+        //    {
+        //        BigInteger q = a / b;
+        //        BigInteger r = a % b;
+
+        //        // Cập nhật a và b
+        //        a = b;
+        //        b = r;
+
+        //        // Cập nhật x và y
+        //        BigInteger xTmp = x1;
+        //        x1 = x0 - q * x1;
+        //        x0 = xTmp;
+
+        //        BigInteger yTmp = y1;
+        //        y1 = y0 - q * y1;
+        //        y0 = yTmp;
+        //    }
+
+        //    return (a, x0, y0);
+        //}
 
     }
 }
