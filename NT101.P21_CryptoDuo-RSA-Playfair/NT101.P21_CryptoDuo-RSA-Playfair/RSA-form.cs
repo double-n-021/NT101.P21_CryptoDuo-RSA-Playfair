@@ -47,12 +47,51 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
             return true;
         }
 
+        private string EncryptRSA(string plaintext)
+        {
+            List<BigInteger> encryptedValues = new List<BigInteger>();
+            byte[] bytes = Encoding.UTF8.GetBytes(plaintext);
+
+            foreach (byte b in bytes)
+            {
+                BigInteger m = new BigInteger(new byte[] { b });
+                BigInteger c = BigInteger.ModPow(m, E, N);
+                encryptedValues.Add(c);
+            }
+
+            // Chuyển từng BigInteger thành chuỗi byte rồi gộp lại để Base64 encode
+            List<byte> allBytes = new List<byte>();
+            foreach (BigInteger bi in encryptedValues)
+            {
+                byte[] bytesPart = bi.ToByteArray();
+
+                // Để đảm bảo có thể tách ra sau này khi giải mã, lưu độ dài của mỗi phần tử (1 byte độ dài, rồi dữ liệu)
+                allBytes.Add((byte)bytesPart.Length);
+                allBytes.AddRange(bytesPart);
+            }
+
+            return Convert.ToBase64String(allBytes.ToArray());
+        }
+
         private void btnEncrypt_Click(object sender, EventArgs e)
+        {
+            string plaintext = tbPlainText.Text.Trim();
+            if (string.IsNullOrEmpty(plaintext))
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu cần mã hóa.", "Thông báo");
+                return;
+            }
+
+            string ciphertext = EncryptRSA(plaintext);
+            tbCipherText.Text = ciphertext;
+        }
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnDecrypt_Click(object sender, EventArgs e)
+        private void btnCalculate_Click(object sender, EventArgs e)
         {
 
         }
