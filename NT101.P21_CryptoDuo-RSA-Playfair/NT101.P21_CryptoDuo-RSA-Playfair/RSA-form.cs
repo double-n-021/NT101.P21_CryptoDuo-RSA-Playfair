@@ -86,9 +86,38 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
             tbCipherText.Text = ciphertext;
         }
 
+
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
+            string base64Input = tbCipherText.Text; //Lấy chuỗi base64 cần giải mã
+            tbCipherInput.Text = base64Input; //In lại chuỗi cần mã hóa lên textbox cipher input
 
+            if (string.IsNullOrEmpty(base64Input))
+            {
+                MessageBox.Show("Chưa có dữ liệu cần giải mã!", "Thông báo");
+                return;
+            }
+
+            byte[] encryptedBytes = Convert.FromBase64String(base64Input); //Chuyển chuỗi base64 về mảng byte
+
+            List<char> decryptedChars = new List<char>(); //Danh sách lưu từng ký tự sau giải mã
+            int i = 0;
+
+            while (i < encryptedBytes.Length)
+            {
+                int length = encryptedBytes[i]; //Đọc độ dài byte[] của từng block mã hóa
+                i++;
+
+                byte[] cBytes = new byte[length]; //Tạo mảng byte cho block hiện tại
+                Array.Copy(encryptedBytes, i, cBytes, 0, length); //Sao chép đúng số byte cần
+                i += length;
+
+                BigInteger c = new BigInteger(cBytes); //Tạo lại BigInteger từ byte[]
+                BigInteger m = BigInteger.ModPow(c, D, N); //Giải mã RSA: m = c^d mod n
+                decryptedChars.Add((char)(int)m); //Chuyển mã ASCII thành ký tự và lưu
+            }
+
+            tbDecryptedText.Text = new string(decryptedChars.ToArray());
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
