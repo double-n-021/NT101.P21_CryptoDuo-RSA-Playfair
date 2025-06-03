@@ -50,7 +50,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.LightCyan;
+            this.btnClear.BackColor = System.Drawing.Color.White;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClear.Font = new System.Drawing.Font("DejaVu Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(1224, 336);
@@ -63,7 +63,7 @@
             // 
             // btnDecrypt
             // 
-            this.btnDecrypt.BackColor = System.Drawing.Color.Bisque;
+            this.btnDecrypt.BackColor = System.Drawing.Color.White;
             this.btnDecrypt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDecrypt.Font = new System.Drawing.Font("DejaVu Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDecrypt.Location = new System.Drawing.Point(1222, 234);
@@ -77,23 +77,23 @@
             // 
             // dgvMatrix
             // 
-            this.dgvMatrix.BackgroundColor = System.Drawing.Color.LemonChiffon;
+            this.dgvMatrix.BackgroundColor = System.Drawing.Color.White;
             this.dgvMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMatrix.Location = new System.Drawing.Point(331, 534);
             this.dgvMatrix.Name = "dgvMatrix";
             this.dgvMatrix.ReadOnly = true;
             this.dgvMatrix.RowHeadersWidth = 102;
-            this.dgvMatrix.Size = new System.Drawing.Size(839, 350);
+            this.dgvMatrix.Size = new System.Drawing.Size(810, 350);
             this.dgvMatrix.TabIndex = 38;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton2.Font = new System.Drawing.Font("DejaVu Serif Condensed", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(1198, 629);
+            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton2.Font = new System.Drawing.Font("DejaVu Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(1163, 630);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(98, 37);
+            this.radioButton2.Size = new System.Drawing.Size(107, 37);
             this.radioButton2.TabIndex = 35;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "6x6";
@@ -102,11 +102,11 @@
             // rbtn5x5
             // 
             this.rbtn5x5.AutoSize = true;
-            this.rbtn5x5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtn5x5.Font = new System.Drawing.Font("DejaVu Serif Condensed", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn5x5.Location = new System.Drawing.Point(1198, 573);
+            this.rbtn5x5.BackColor = System.Drawing.Color.Transparent;
+            this.rbtn5x5.Font = new System.Drawing.Font("DejaVu Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtn5x5.Location = new System.Drawing.Point(1163, 576);
             this.rbtn5x5.Name = "rbtn5x5";
-            this.rbtn5x5.Size = new System.Drawing.Size(98, 37);
+            this.rbtn5x5.Size = new System.Drawing.Size(107, 37);
             this.rbtn5x5.TabIndex = 34;
             this.rbtn5x5.TabStop = true;
             this.rbtn5x5.Text = "5x5";
@@ -114,10 +114,10 @@
             // 
             // txtText2
             // 
-            this.txtText2.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtText2.BackColor = System.Drawing.Color.White;
             this.txtText2.Location = new System.Drawing.Point(331, 908);
             this.txtText2.Name = "txtText2";
-            this.txtText2.Size = new System.Drawing.Size(846, 302);
+            this.txtText2.Size = new System.Drawing.Size(810, 302);
             this.txtText2.TabIndex = 32;
             this.txtText2.Text = "";
             // 
@@ -134,7 +134,7 @@
             // 
             // btnEncrypt
             // 
-            this.btnEncrypt.BackColor = System.Drawing.Color.Azure;
+            this.btnEncrypt.BackColor = System.Drawing.Color.White;
             this.btnEncrypt.Font = new System.Drawing.Font("DejaVu Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEncrypt.Location = new System.Drawing.Point(1222, 234);
             this.btnEncrypt.Name = "btnEncrypt";
@@ -146,12 +146,12 @@
             // 
             // btnMakeMT
             // 
-            this.btnMakeMT.BackColor = System.Drawing.Color.Lavender;
+            this.btnMakeMT.BackColor = System.Drawing.Color.White;
             this.btnMakeMT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMakeMT.Font = new System.Drawing.Font("DejaVu Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMakeMT.Location = new System.Drawing.Point(1195, 697);
+            this.btnMakeMT.Location = new System.Drawing.Point(1163, 692);
             this.btnMakeMT.Name = "btnMakeMT";
-            this.btnMakeMT.Size = new System.Drawing.Size(328, 69);
+            this.btnMakeMT.Size = new System.Drawing.Size(360, 69);
             this.btnMakeMT.TabIndex = 29;
             this.btnMakeMT.Text = "Tạo ma trận";
             this.btnMakeMT.UseVisualStyleBackColor = false;
@@ -159,21 +159,21 @@
             // 
             // txtText1
             // 
-            this.txtText1.BackColor = System.Drawing.Color.Honeydew;
+            this.txtText1.BackColor = System.Drawing.Color.White;
             this.txtText1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtText1.Location = new System.Drawing.Point(324, 234);
             this.txtText1.Name = "txtText1";
-            this.txtText1.Size = new System.Drawing.Size(846, 267);
+            this.txtText1.Size = new System.Drawing.Size(817, 267);
             this.txtText1.TabIndex = 28;
             this.txtText1.Text = "";
             // 
             // txtKey
             // 
-            this.txtKey.BackColor = System.Drawing.Color.MistyRose;
+            this.txtKey.BackColor = System.Drawing.Color.White;
             this.txtKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKey.Location = new System.Drawing.Point(324, 171);
             this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(1199, 38);
+            this.txtKey.Size = new System.Drawing.Size(817, 38);
             this.txtKey.TabIndex = 27;
             // 
             // lbCipherText
@@ -191,10 +191,10 @@
             // 
             this.rbtDecrypt.AutoSize = true;
             this.rbtDecrypt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbtDecrypt.Font = new System.Drawing.Font("DejaVu Serif Condensed", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtDecrypt.Font = new System.Drawing.Font("DejaVu Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtDecrypt.Location = new System.Drawing.Point(1224, 101);
             this.rbtDecrypt.Name = "rbtDecrypt";
-            this.rbtDecrypt.Size = new System.Drawing.Size(279, 37);
+            this.rbtDecrypt.Size = new System.Drawing.Size(333, 37);
             this.rbtDecrypt.TabIndex = 24;
             this.rbtDecrypt.TabStop = true;
             this.rbtDecrypt.Text = "Giải mã (Decrypt)";
@@ -204,11 +204,11 @@
             // rbtEncrypt
             // 
             this.rbtEncrypt.AutoSize = true;
-            this.rbtEncrypt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbtEncrypt.Font = new System.Drawing.Font("DejaVu Serif Condensed", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtEncrypt.BackColor = System.Drawing.Color.Transparent;
+            this.rbtEncrypt.Font = new System.Drawing.Font("DejaVu Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtEncrypt.Location = new System.Drawing.Point(1224, 33);
             this.rbtEncrypt.Name = "rbtEncrypt";
-            this.rbtEncrypt.Size = new System.Drawing.Size(275, 37);
+            this.rbtEncrypt.Size = new System.Drawing.Size(326, 37);
             this.rbtEncrypt.TabIndex = 23;
             this.rbtEncrypt.TabStop = true;
             this.rbtEncrypt.Text = "Mã hoá (Encrypt)";
@@ -217,13 +217,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(1, -3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1588, 1222);
+            this.pictureBox1.Size = new System.Drawing.Size(1586, 1229);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
             // 
             // Playfair_form
