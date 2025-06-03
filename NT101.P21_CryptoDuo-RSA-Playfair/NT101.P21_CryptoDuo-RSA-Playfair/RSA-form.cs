@@ -47,35 +47,45 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
             return true;
         }
 
+        private string EncryptRSA(string plaintext)
+        {
+            List<BigInteger> encryptedValues = new List<BigInteger>();
+            byte[] bytes = Encoding.UTF8.GetBytes(plaintext);
+
+            foreach (byte b in bytes)
+            {
+                BigInteger m = new BigInteger(new byte[] { b });
+                BigInteger c = BigInteger.ModPow(m, E, N);
+                encryptedValues.Add(c);
+            }
+
+            // Chuyển từng BigInteger thành chuỗi byte rồi gộp lại để Base64 encode
+            List<byte> allBytes = new List<byte>();
+            foreach (BigInteger bi in encryptedValues)
+            {
+                byte[] bytesPart = bi.ToByteArray();
+
+                // Để đảm bảo có thể tách ra sau này khi giải mã, lưu độ dài của mỗi phần tử (1 byte độ dài, rồi dữ liệu)
+                allBytes.Add((byte)bytesPart.Length);
+                allBytes.AddRange(bytesPart);
+            }
+
+            return Convert.ToBase64String(allBytes.ToArray());
+        }
+
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-            string plaintext = tbPlainText.Text;
+            string plaintext = tbPlainText.Text.Trim();
             if (string.IsNullOrEmpty(plaintext))
             {
-                MessageBox.Show("Vui lòng nhập dữ liệu cần mã hóa!", "Thông báo");
-                return; 
+                MessageBox.Show("Vui lòng nhập dữ liệu cần mã hóa.", "Thông báo");
+                return;
             }
 
-            List<BigInteger> encryptedValues = new List<BigInteger>(); //Danh sách lưu từng giá trị mã hóa (dạng số)
-            List<byte> encryptedBytes = new List<byte>(); //Danh sách byte dùng để mã hóa sang Base64
-
-            foreach (char ch in plaintext)
-            {
-                BigInteger m = new BigInteger((int)ch); //Chuyển ký tự sang mã ASCII và ép kiểu BigInteger
-                BigInteger c = BigInteger.ModPow(m, E, N); //Mã hóa RSA: c = m^e mod n
-                encryptedValues.Add(c); //Lưu giá trị mã hóa
-
-                byte[] cBytes = c.ToByteArray(); //Chuyển BigInteger thành mảng byte
-                encryptedBytes.Add((byte)cBytes.Length); //Ghi độ dài trước để giải mã dễ
-                encryptedBytes.AddRange(cBytes); //Thêm toàn bộ byte vào danh sách
-            }
-            ////Hiển thị dạng mã hóa số (tùy chọn, dùng để debug hoặc tham khảo)
-            //tbCipherText.Text = string.Join(" ", encryptedValues);
-
-            // Chuyển danh sách byte thành mảng và mã hóa Base64
-            string base64Encrypted = Convert.ToBase64String(encryptedBytes.ToArray());
-            tbCipherText.Text = base64Encrypted; // Hiển thị chuỗi mã hóa base64
+            string ciphertext = EncryptRSA(plaintext);
+            tbCipherText.Text = ciphertext;
         }
+
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
@@ -108,6 +118,11 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
             }
 
             tbDecryptedText.Text = new string(decryptedChars.ToArray());
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnGen_Click(object sender, EventArgs e)
