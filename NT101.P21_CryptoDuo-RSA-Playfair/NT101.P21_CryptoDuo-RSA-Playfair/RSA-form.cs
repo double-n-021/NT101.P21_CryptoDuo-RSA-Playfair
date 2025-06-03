@@ -49,12 +49,65 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
+            string plaintext = tbPlainText.Text;
+            if (string.IsNullOrEmpty(plaintext))
+            {
+                MessageBox.Show("Vui lòng nhập dữ liệu cần mã hóa!", "Thông báo");
+                return; 
+            }
 
+            List<BigInteger> encryptedValues = new List<BigInteger>(); //Danh sách lưu từng giá trị mã hóa (dạng số)
+            List<byte> encryptedBytes = new List<byte>(); //Danh sách byte dùng để mã hóa sang Base64
+
+            foreach (char ch in plaintext)
+            {
+                BigInteger m = new BigInteger((int)ch); //Chuyển ký tự sang mã ASCII và ép kiểu BigInteger
+                BigInteger c = BigInteger.ModPow(m, E, N); //Mã hóa RSA: c = m^e mod n
+                encryptedValues.Add(c); //Lưu giá trị mã hóa
+
+                byte[] cBytes = c.ToByteArray(); //Chuyển BigInteger thành mảng byte
+                encryptedBytes.Add((byte)cBytes.Length); //Ghi độ dài trước để giải mã dễ
+                encryptedBytes.AddRange(cBytes); //Thêm toàn bộ byte vào danh sách
+            }
+            ////Hiển thị dạng mã hóa số (tùy chọn, dùng để debug hoặc tham khảo)
+            //tbCipherText.Text = string.Join(" ", encryptedValues);
+
+            // Chuyển danh sách byte thành mảng và mã hóa Base64
+            string base64Encrypted = Convert.ToBase64String(encryptedBytes.ToArray());
+            tbCipherText.Text = base64Encrypted; // Hiển thị chuỗi mã hóa base64
         }
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
+            string base64Input = tbCipherText.Text; //Lấy chuỗi base64 cần giải mã
+            tbCipherInput.Text = base64Input; //In lại chuỗi cần mã hóa lên textbox cipher input
 
+            if (string.IsNullOrEmpty(base64Input))
+            {
+                MessageBox.Show("Chưa có dữ liệu cần giải mã!", "Thông báo");
+                return;
+            }
+
+            byte[] encryptedBytes = Convert.FromBase64String(base64Input); //Chuyển chuỗi base64 về mảng byte
+
+            List<char> decryptedChars = new List<char>(); //Danh sách lưu từng ký tự sau giải mã
+            int i = 0;
+
+            while (i < encryptedBytes.Length)
+            {
+                int length = encryptedBytes[i]; //Đọc độ dài byte[] của từng block mã hóa
+                i++;
+
+                byte[] cBytes = new byte[length]; //Tạo mảng byte cho block hiện tại
+                Array.Copy(encryptedBytes, i, cBytes, 0, length); //Sao chép đúng số byte cần
+                i += length;
+
+                BigInteger c = new BigInteger(cBytes); //Tạo lại BigInteger từ byte[]
+                BigInteger m = BigInteger.ModPow(c, D, N); //Giải mã RSA: m = c^d mod n
+                decryptedChars.Add((char)(int)m); //Chuyển mã ASCII thành ký tự và lưu
+            }
+
+            tbDecryptedText.Text = new string(decryptedChars.ToArray());
         }
 
         private void btnGen_Click(object sender, EventArgs e)
