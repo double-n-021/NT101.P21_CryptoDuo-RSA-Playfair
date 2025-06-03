@@ -65,5 +65,23 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
             if (playfair == null) return;
             txtText2.Text = playfair.Encrypt(txtText1.Text);
         }
+
+        private void rbtDecrypt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtDecrypt.Checked)
+            {
+                lbCipherText.Text = "Plain Text";
+                lbPlainText.Text = "Cipher Text";
+                btnEncrypt.Visible = false;
+                btnDecrypt.Visible = true;  
+            }
+            else if (rbtEncrypt.Checked)
+            {
+                lbCipherText.Text = "Cipher Text";
+                lbPlainText.Text = "Plain Text";
+                btnDecrypt.Visible = false;
+                btnEncrypt.Visible = true;
+            }
+        }
     }
 }
