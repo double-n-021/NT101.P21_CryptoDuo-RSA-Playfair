@@ -20,7 +20,8 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
 
         private void btnPlayFair_Click(object sender, EventArgs e)
         {
-
+            Playfair_form playfair_Form = new Playfair_form();
+            playfair_Form.Show();
         }
 
         private void btnRSA_Click(object sender, EventArgs e)
