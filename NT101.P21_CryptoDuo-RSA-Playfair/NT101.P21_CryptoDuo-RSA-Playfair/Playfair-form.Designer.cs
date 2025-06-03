@@ -62,16 +62,18 @@
             this.btnClear.TabIndex = 40;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDecrypt
             // 
-            this.btnDecrypt.Location = new System.Drawing.Point(1188, 234);
+            this.btnDecrypt.Location = new System.Drawing.Point(1187, 234);
             this.btnDecrypt.Name = "btnDecrypt";
             this.btnDecrypt.Size = new System.Drawing.Size(311, 66);
             this.btnDecrypt.TabIndex = 39;
             this.btnDecrypt.Text = "Giải mã";
             this.btnDecrypt.UseVisualStyleBackColor = true;
             this.btnDecrypt.Visible = false;
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // dgvMatrix
             // 
@@ -166,6 +168,7 @@
             this.btnEncrypt.TabIndex = 30;
             this.btnEncrypt.Text = "Mã hoá";
             this.btnEncrypt.UseVisualStyleBackColor = true;
+            this.btnEncrypt.Click += new System.EventHandler(this.btnEncrypt_Click);
             // 
             // btnMakeMT
             // 
@@ -175,6 +178,7 @@
             this.btnMakeMT.TabIndex = 29;
             this.btnMakeMT.Text = "Tạo ma trận";
             this.btnMakeMT.UseVisualStyleBackColor = true;
+            this.btnMakeMT.Click += new System.EventHandler(this.btnMakeMT_Click);
             // 
             // txtText1
             // 
@@ -236,6 +240,7 @@
             this.rbtEncrypt.TabStop = true;
             this.rbtEncrypt.Text = "Mã hoá (Encrypt)";
             this.rbtEncrypt.UseVisualStyleBackColor = false;
+            this.rbtEncrypt.CheckedChanged += new System.EventHandler(this.rbtEncrypt_CheckedChanged);
             // 
             // lbTask
             // 
