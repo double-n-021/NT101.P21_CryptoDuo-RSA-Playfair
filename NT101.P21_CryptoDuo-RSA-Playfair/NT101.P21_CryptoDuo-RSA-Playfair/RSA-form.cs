@@ -125,6 +125,11 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
 
         }
 
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnGen_Click(object sender, EventArgs e)
         {
             reset();
