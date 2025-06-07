@@ -38,12 +38,12 @@
             // btnPlayFair
             // 
             this.btnPlayFair.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPlayFair.Font = new System.Drawing.Font("DejaVu Serif Condensed", 14.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayFair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlayFair.ForeColor = System.Drawing.Color.Black;
-            this.btnPlayFair.Location = new System.Drawing.Point(311, 348);
-            this.btnPlayFair.Margin = new System.Windows.Forms.Padding(8);
+            this.btnPlayFair.Location = new System.Drawing.Point(156, 180);
+            this.btnPlayFair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPlayFair.Name = "btnPlayFair";
-            this.btnPlayFair.Size = new System.Drawing.Size(681, 99);
+            this.btnPlayFair.Size = new System.Drawing.Size(340, 51);
             this.btnPlayFair.TabIndex = 0;
             this.btnPlayFair.Text = "Playfair";
             this.btnPlayFair.UseVisualStyleBackColor = false;
@@ -51,12 +51,12 @@
             // 
             // btnRSA
             // 
-            this.btnRSA.Font = new System.Drawing.Font("DejaVu Serif", 14.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRSA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRSA.ForeColor = System.Drawing.Color.Black;
-            this.btnRSA.Location = new System.Drawing.Point(1132, 348);
-            this.btnRSA.Margin = new System.Windows.Forms.Padding(8);
+            this.btnRSA.Location = new System.Drawing.Point(566, 180);
+            this.btnRSA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRSA.Name = "btnRSA";
-            this.btnRSA.Size = new System.Drawing.Size(699, 99);
+            this.btnRSA.Size = new System.Drawing.Size(350, 51);
             this.btnRSA.TabIndex = 1;
             this.btnRSA.Text = "RSA";
             this.btnRSA.UseVisualStyleBackColor = true;
@@ -65,27 +65,28 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-3, -4);
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(2123, 823);
+            this.pictureBox1.Size = new System.Drawing.Size(1062, 425);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // Form_Control
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(2104, 518);
+            this.ClientSize = new System.Drawing.Size(1042, 322);
             this.Controls.Add(this.btnRSA);
             this.Controls.Add(this.btnPlayFair);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(8);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Form_Control";
             this.Text = "CryptoDuo-RSA-Playfair";
