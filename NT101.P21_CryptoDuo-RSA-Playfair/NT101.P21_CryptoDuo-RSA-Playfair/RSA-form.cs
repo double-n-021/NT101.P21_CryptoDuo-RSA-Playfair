@@ -123,6 +123,68 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
         private void btnCalculate_Click(object sender, EventArgs e)
         {
 
+            //Bước 1: Lấy giá trị P, Q, E từ textbox
+            if (!BigInteger.TryParse(tbNumP.Text.Trim(), out P) ||
+                !BigInteger.TryParse(tbNumQ.Text.Trim(), out Q) ||
+                !BigInteger.TryParse(tbE.Text.Trim(), out E))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ và đúng định dạng số nguyên cho P, Q và E.", "Lỗi");
+                return;
+            }
+
+            //Bước 2: Kiểm tra tính nguyên tố của P và Q
+            if (!IsPrime(P))
+            {
+                MessageBox.Show("Số P không phải là số nguyên tố.", "Lỗi");
+                return;
+            }
+
+            if (!IsPrime(Q))
+            {
+                MessageBox.Show("Số Q không phải là số nguyên tố.", "Lỗi");
+                return;
+            }
+
+            if (P == Q)
+            {
+                MessageBox.Show("P và Q phải khác nhau.", "Lỗi");
+                return;
+            }
+
+            //Bước 3: Tính N, Phi(N)
+            N = P * Q;
+            PhiN = (P - 1) * (Q - 1);
+            tbN.Text = N.ToString();
+            tbPhiN.Text = PhiN.ToString();
+
+            //Bước 4: Kiểm tra E nguyên tố cùng nhau với Phi(N)
+            if (!AreCoprime(E, PhiN))
+            {
+                MessageBox.Show("E phải nguyên tố cùng nhau với Phi(N).", "Lỗi");
+                return;
+            }
+
+            //Bước 5: Tính D bằng Euclid mở rộng
+            var result = ExtendedEuclid(E, PhiN);
+            BigInteger gcd = result.gcd;
+            BigInteger x = result.x;
+
+            if (gcd != 1)
+            {
+                MessageBox.Show("Không tìm được D vì gcd(E, PhiN) != 1", "Lỗi");
+                return;
+            }
+
+            D = x % PhiN;
+            if (D < 0) D += PhiN;
+
+            tbD.Text = D.ToString();
+
+            //Cho phép mã hóa và giải mã sau khi tính khóa thành công
+            btnEncrypt.Enabled = true;
+            btnDecrypt.Enabled = true;
+
+            MessageBox.Show("Khóa đã được tính toán thành công.", "Thông báo");
         }
 
         private void btnGen_Click(object sender, EventArgs e)
@@ -195,6 +257,7 @@ namespace NT101.P21_CryptoDuo_RSA_Playfair
 
                 tbD.Text = D.ToString();
 
+                MessageBox.Show("Khóa đã được tính toán thành công.", "Thông báo");
 
             }
             catch (Exception ex)
