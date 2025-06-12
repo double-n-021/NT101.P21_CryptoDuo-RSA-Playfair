@@ -28,9 +28,6 @@ Develop an application that supports encryption and decryption using:
 - IDE: `Visual Studio`
 - Algorithms: `RSA`, `Playfair Cipher`
 
-## Screenshots interface
-
-
 ## 👥 Team Members
 
 | Student ID | Full Name             | Email                  | GitHub Profile                                 |
